@@ -1,63 +1,50 @@
-# CodeIgniter 4 Application Starter
+# Rapidev Test Submission
+Repo untuk hasil pengerjaan test dari Rapidev.
+## Requirement
+ - Web Server
+ - Database MySQL >= 8
+ - PHP >= 7
 
-## What is CodeIgniter?
+## Dokumentasi
+### AUTH & CRUD Promo
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+ - Autentikasi
+    - Untuk melakukan login bisa mengakses `{host}/auth/login`
+    - Untuk logout, akses `{host}/auth/logout`
+    
+ - Halaman Promo
+    - Untuk melihat halaman index (data promo), akses `{host}/promotion`
+    - Untuk menambah data promo, akses `{host}/promotion/create`
+    - Untuk mengubah data promo, akses `{host}/promotion/edit/:id_promo`
+    - Untuk menghapus data promo, akses `{host}/promotion/delete/:id_promo`
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+### Endpoint
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+ - Memperoleh room rates
+	 
+     Untuk memperoleh room rates bisa dengan mengakses url dengan method:
+     
+	 `GET` : `{host}/property/:property_id/rooms?check_in=:param1&check_out=:param2`
+    
+    > :property_id adalah id properties/hotel
+    
+    > :param1 adalah tanggal check in (format yyyy-mm-dd)
+    
+    > :param2 adalah tanggal check out (format yyyy-mm-dd)
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
 
-## Installation & updates
+ - Memperoleh harga total dan total diskon reservasi
+	 
+     Untuk memperoleh harga total dan total diskon reservasi bisa dengan mengakses url dengan method:
+     
+	 `GET` : `{host}/reservation/:room_id?check_in=:param1&check_out=:param2&amount=:param3`
+    
+    > :room_id adalah id room/kamar
+    
+    > :param1 adalah tanggal check in (format yyyy-mm-dd)
+    
+    > :param2 adalah tanggal check out (format yyyy-mm-dd)
+    
+    > :param3 adalah total
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
-
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
-
-## Setup
-
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
-
-## Important Change with index.php
-
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.4 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+  
